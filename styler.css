@@ -30,3 +30,18 @@ header {
     border-bottom: 2px solid #D2B48C;
 }
 
+/* This is for the cat featured thing */
+
+/* Title styling for "Today's Featured Cat" */
+.cat-title {
+    color: #8B6C42; /* Brown color */
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Image styling for "Cat of the Day" */
+.cat-image {
+    width: 550px; /* Larger image size */
+    border-radius: 8px;
+}
