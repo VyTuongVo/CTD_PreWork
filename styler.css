@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #F4A460; /* text color*/
+    background-color: #FAF0E6  /*adding background color*/
+}
+
+header {
+    background-color: #F4A460;
+    padding: 10px 0; /* Reduced padding */
+}
+
+.tab-menu {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.tab-menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #D2B48C; /* Tab menu color */
+    border-bottom: 2px solid transparent;
+    padding: 5px;
+}
+
+/* when you hover over the option, this color will appear*/
+.tab-menu a:hover {
+    border-bottom: 2px solid #D2B48C;
+}
+
