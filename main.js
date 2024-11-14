@@ -1,8 +1,5 @@
 const apiKey = 'live_Dz8ZiOyF9uQH8YFNWjm7CWF4fKwlN3W4SKUrwJnKxNoR15wABaQIgPbpGavaJusB'; 
-const breedsUrl = 'https://api.thecatapi.com/v1/breeds'; //this url will give breeds
-const imagesUrl = 'https://api.thecatapi.com/v1/images/search?limit=10'; //this url will give images. Currently limit is at 10 at the time
-
-
+const imagesUrl = 'https://api.thecatapi.com/v1/images/search?limit=10&size=med'; // Restrict images to medium size
 
 async function fetchCatOfTheDay() {
     try {
@@ -16,7 +13,7 @@ async function fetchCatOfTheDay() {
     }
 }
 
-// Function will bring the image into the HTML
+// Function to display the image in the HTML
 function displayCatOfTheDay(catData) {
     const catContainer = document.getElementById('cat-of-the-day');
     catContainer.innerHTML = `
@@ -24,5 +21,15 @@ function displayCatOfTheDay(catData) {
     `;
 }
 
-// Load "Cat of the Day" as the home page content on page load
-document.addEventListener('DOMContentLoaded', fetchCatOfTheDay);
+// Wait for the DOM to load fully before setting up event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    // Load "Cat of the Day" on page load
+    fetchCatOfTheDay();
+
+    // Add event listener to the refresh button
+    const refreshButton = document.getElementById('refresh-button');
+    refreshButton.addEventListener('click', () => {
+        console.log("Refresh button clicked");
+        fetchCatOfTheDay();
+    });
+});

@@ -37,11 +37,87 @@ header {
     color: #8B6C42; /* Brown color */
     font-size: 2em;
     font-weight: bold;
+    margin-top: 50px;
     margin-bottom: 10px;
 }
 
-/* Image styling for "Cat of the Day" */
 .cat-image {
-    width: 550px; /* Larger image size */
+    max-width: 900px; /* Adjust as needed */
+    max-height: 600px ; /* Keeps aspect ratio */
     border-radius: 8px;
+}
+
+/* Style for the side SVG cat image */
+.side-cat-right {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    width: 150px; /* Adjust the size as needed */
+    color: #8B4513; /* Set to brown */
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.side-cat:hover {
+    transform: scale(1.1);
+    color: #8B4513; /* Darker brown on hover */
+}
+
+.side-cat-left {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    width: 150px; /* Adjust the size as needed */
+    color: #8B4513; /* Set to brown */
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.side-cat:hover {
+    transform: scale(1.1);
+    color: #8B4513; /* Darker brown on hover */
+}
+
+
+.cat-paw-right {
+    position: absolute;
+    bottom: 30px;
+    right: 15px;
+    width: 400px; /* Adjust the size as needed */
+    color: #8B4513; /* Brown color */
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.cat-paw:hover {
+    transform: scale(1.1);
+    color: #8B4513; /* Darker brown on hover */
+}
+
+
+.cat-paw-left {
+    position: absolute;
+    top: 130px;
+    left: 15px;
+    width: 400px; /* Adjust the size as needed */
+    color: #8B4513; /* Brown color */
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.cat-paw:hover {
+    transform: scale(1.1);
+    color: #8B4513; /* Darker brown on hover */
+}
+
+.refresh-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #8B4513; /* Dark brown color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.refresh-button:hover {
+    background-color: #A0522D; /* Lighter brown on hover */
 }
