@@ -47,9 +47,8 @@
         </div>
     </div>
 
-    <!-- Energy level --> 
+    <!-- Energy Level -->
     <div class="survey-container">
-        <!-- Energy Level Question with Ranges -->
         <div class="question">
             <label for="energy-level">What energy level are you looking for? (1-5 = Low, 6-10 = Middle, 11-20 = High)</label>
             <select id="energy-level">
@@ -61,11 +60,47 @@
         </div>
     </div>
 
+    <!-- Life Span -->
+    <div class="survey-container">
+        <div class="question">
+            <label for="life_span">How long of a life span are you looking for? (1-7 = Short, 8-14 = Average, 15+ = Long)</label>
+            <select id="life_span">
+                <option value="">Unknown</option>
+                <option value="short">Short (1-7)</option>
+                <option value="average">Average (8-14)</option>
+                <option value="long">Long (15+)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Affection Level -->
+    <div class="survey-container">
+        <div class="question">
+            <label for="Affectionate">What affectionate level are you looking for? (1-3 = Low, 4-7 = Average, 8+ = High)</label>
+            <select id="Affectionate">
+                <option value="">Unknown</option>
+                <option value="low">Low (1-3)</option>
+                <option value="average">Average (4-7)</option>
+                <option value="high">High (8+)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Vocalization Level -->
+    <div class="survey-container">
+        <div class="question">
+            <label for="Vocalisation">What vocalization level are you looking for? (1-3 = Low, 4-7 = Average, 8+ = High)</label>
+            <select id="Vocalisation">
+                <option value="">Unknown</option>
+                <option value="low">Low (1-3)</option>
+                <option value="average">Average (4-7)</option>
+                <option value="high">High (8+)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Results Section -->
     <div id="results" class="results hidden"></div>
     <button id="submit-button">Find My Cat Match</button>
-    
-    
-
-    
 </body>
 </html>

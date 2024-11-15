@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return selectedOptions.map(option => option.value);
     }
 
-    // Function to get the selected energy level range
+    // Function to get selected energy level range
     function getEnergyLevelRange() {
         const energyLevel = document.getElementById("energy-level").value;
         if (energyLevel === "low") return { min: 1, max: 5 };
@@ -32,10 +32,40 @@ document.addEventListener("DOMContentLoaded", function() {
         return null; // Return null if "Unknown" is selected
     }
 
+    // Function to get selected life span range
+    function getLifeSpanRange() {
+        const lifeSpan = document.getElementById("life_span").value;
+        if (lifeSpan === "short") return { min: 1, max: 7 };
+        if (lifeSpan === "average") return { min: 8, max: 14 };
+        if (lifeSpan === "long") return { min: 15, max: 100 };
+        return null;
+    }
+
+    // Function to get selected affectionate level
+    function getAffectionateLevelRange() {
+        const affectionateLevel = document.getElementById("Affectionate").value;
+        if (affectionateLevel === "low") return { min: 1, max: 3 };
+        if (affectionateLevel === "average") return { min: 4, max: 7 };
+        if (affectionateLevel === "high") return { min: 8, max: 10 };
+        return null;
+    }
+
+    // Function to get selected vocalization level
+    function getVocalizationLevelRange() {
+        const vocalLevel = document.getElementById("Vocalisation").value;
+        if (vocalLevel === "low") return { min: 1, max: 3 };
+        if (vocalLevel === "average") return { min: 4, max: 7 };
+        if (vocalLevel === "high") return { min: 8, max: 10 };
+        return null;
+    }
+
     // Function to find the best matching breeds
     async function findBestMatch() {
         const personalities = getSelectedPersonalities();
         const energyLevelRange = getEnergyLevelRange();
+        const lifeSpanRange = getLifeSpanRange();
+        const affectionateLevelRange = getAffectionateLevelRange();
+        const vocalizationLevelRange = getVocalizationLevelRange();
 
         try {
             const response = await fetch(breedsApiUrl, {
@@ -45,15 +75,32 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             const breeds = await response.json();
 
-            // Filter breeds based on personality and energy level range
+            // Filter breeds based on all selected criteria
             const matchedBreeds = breeds.filter(breed => {
                 const matchesPersonality = !personalities.length || 
                     personalities.some(personality => breed.temperament && breed.temperament.includes(personality));
                 
                 const matchesEnergyLevel = !energyLevelRange || 
-                    (breed.energy_level >= energyLevelRange.min && breed.energy_level <= energyLevelRange.max);
+                    (breed.energy_level !== undefined &&
+                    breed.energy_level >= energyLevelRange.min &&
+                    breed.energy_level <= energyLevelRange.max);
 
-                return matchesPersonality && matchesEnergyLevel;
+                const matchesLifeSpan = !lifeSpanRange || 
+                    (breed.life_span &&
+                    parseInt(breed.life_span.split(" - ")[0]) >= lifeSpanRange.min &&
+                    parseInt(breed.life_span.split(" - ")[1]) <= lifeSpanRange.max);
+
+                const matchesAffectionateLevel = !affectionateLevelRange || 
+                    (breed.affection_level !== undefined &&
+                    breed.affection_level >= affectionateLevelRange.min &&
+                    breed.affection_level <= affectionateLevelRange.max);
+
+                const matchesVocalizationLevel = !vocalizationLevelRange || 
+                    (breed.vocalisation !== undefined &&
+                    breed.vocalisation >= vocalizationLevelRange.min &&
+                    breed.vocalisation <= vocalizationLevelRange.max);
+
+                return matchesPersonality && matchesEnergyLevel && matchesLifeSpan && matchesAffectionateLevel && matchesVocalizationLevel;
             });
 
             displayResults(matchedBreeds);
@@ -75,10 +122,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 const breedInfo = `
                     <div class="breed-result">
                         <h3>${breed.name}</h3>
-                        <p><strong>Temperament:</strong> ${breed.temperament}</p>
-                        <p><strong>Energy Level:</strong> ${breed.energy_level}</p>
-                        <p><strong>Origin:</strong> ${breed.origin}</p>
-                        <p><strong>Life Span:</strong> ${breed.life_span} years</p>
+                        <p><strong>Temperament:</strong> ${breed.temperament || "N/A"}</p>
+                        <p><strong>Energy Level:</strong> ${breed.energy_level || "N/A"}</p>
+                        <p><strong>Life Span:</strong> ${breed.life_span || "N/A"} years</p>
+                        <p><strong>Affection Level:</strong> ${breed.affection_level || "N/A"}</p>
+                        <p><strong>Vocalization Level:</strong> ${breed.vocalisation || "N/A"}</p>
                         <a href="${breed.wikipedia_url}" target="_blank">Learn more on Wikipedia</a>
                     </div>
                 `;
