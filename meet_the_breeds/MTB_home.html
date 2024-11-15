@@ -3,17 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet The Breed</title>
+    <title>The Purrfect Match</title>
     <link href="MTB_style.css" rel="stylesheet" type="text/css">
-    <script src="MTB_main.js" defer></script> <!-- Add defer to ensure script loads after HTML -->
+    <script src="MTB_main.js" defer></script>
 </head>
 <body>
-    <h1>Meet The Breed</h1>
+    <h1>The Purrfect Match</h1>
 
     <nav class="home-tab">
         <!-- This code will give the user an option to go back home -->
         <a href="../my_project.html">Home</a>
     </nav>
+
+    <div class="survey-container">
+        <div class="question">
+            <label>What cat personality are you looking for? (Select up to 3)</label>
+            <div id="personality-options">
+                <label><input type="checkbox" value="Active" class="personality-checkbox"> Active</label>
+                <label><input type="checkbox" value="Affectionate" class="personality-checkbox"> Affectionate</label>
+                <label><input type="checkbox" value="Playful" class="personality-checkbox"> Playful</label>
+                <label><input type="checkbox" value="Intelligent" class="personality-checkbox"> Intelligent</label>
+                <label><input type="checkbox" value="Gentle" class="personality-checkbox"> Gentle</label>
+                <label><input type="checkbox" value="Energetic" class="personality-checkbox"> Energetic</label>
+                <label><input type="checkbox" value="Social" class="personality-checkbox"> Social</label>
+                <label><input type="checkbox" value="Interactive" class="personality-checkbox"> Interactive</label>
+                <label><input type="checkbox" value="Lively" class="personality-checkbox"> Lively</label>
+                <label><input type="checkbox" value="Sensitive" class="personality-checkbox"> Sensitive</label>
+                <label><input type="checkbox" value="Curious" class="personality-checkbox"> Curious</label>
+                <label><input type="checkbox" value="Easy Going" class="personality-checkbox"> Easy Going</label>
+                <label><input type="checkbox" value="Calm" class="personality-checkbox"> Calm</label>
+                <label><input type="checkbox" value="Loyal" class="personality-checkbox"> Loyal</label>
+                <label><input type="checkbox" value="Sensible" class="personality-checkbox"> Sensible</label>
+                <label><input type="checkbox" value="Independent" class="personality-checkbox"> Independent</label>
+                <label><input type="checkbox" value="Agile" class="personality-checkbox"> Agile</label>
+                <label><input type="checkbox" value="Relaxed" class="personality-checkbox"> Relaxed</label>
+                <label><input type="checkbox" value="Fun-loving" class="personality-checkbox"> Fun-loving</label>
+                <label><input type="checkbox" value="Friendly" class="personality-checkbox"> Friendly</label>
+                <label><input type="checkbox" value="Alert" class="personality-checkbox"> Alert</label>
+                <label><input type="checkbox" value="Demanding" class="personality-checkbox"> Demanding</label>
+                <label><input type="checkbox" value="Dependent" class="personality-checkbox"> Dependent</label>
+                <label><input type="checkbox" value="Patient" class="personality-checkbox"> Patient</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Energy level --> 
+    <div class="survey-container">
+        <!-- Energy Level Question with Ranges -->
+        <div class="question">
+            <label for="energy-level">What energy level are you looking for? (1-5 = Low, 6-10 = Middle, 11-20 = High)</label>
+            <select id="energy-level">
+                <option value="">Unknown</option>
+                <option value="low">Low (1-5)</option>
+                <option value="middle">Middle (6-10)</option>
+                <option value="high">High (11-20)</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="results" class="results hidden"></div>
+    <button id="submit-button">Find My Cat Match</button>
+    
+    
+
     
 </body>
 </html>
