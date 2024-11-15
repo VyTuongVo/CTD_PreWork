@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Gallery</title>
     <link href="CG_style.css" rel="stylesheet" type="text/css">
-    <script src="OG_main.js"></script>
+    <script src="OG_main.js" defer></script> <!-- Add defer to ensure script loads after HTML -->
 </head>
 <body>
     <div class="maincontent">
         <h1>Cat Gallery</h1>
-        <button id="refresh-button" class="refresh-button">Load New Gallary</button>
+        <button id="refresh-button" class="refresh-button">Load New Gallery</button>
         <div id="grid" class="imgrid"></div> <!-- Container for images -->
     </div>
 </body>
 </html>
+
