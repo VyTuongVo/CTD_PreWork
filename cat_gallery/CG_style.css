@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #F4A460; /* text color */
+    background-color: #FAF0E6; /* background color */
+}
+
+.maincontent {
+    padding-top: 2%;
+}
+
+.col {
+    padding: 1%;
+}
+
+.col-lg {
+    height: 200px;
+    overflow: hidden;
+    margin: 10px 0;
+    position: relative;
+    flex-basis: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-lg img {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover; /* Ensures image covers the box without distortion */
+}
+
+.imgrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 5%;
+}
+
+.refresh-button {
+    position: absolute; /* Ensures the button is positioned relative to the container */
+    top: 60px;
+    right: 200px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #8B4513; /* Dark brown color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+
+.refresh-button:hover {
+    background-color: #A0522D; /* Lighter brown on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* Increases shadow on hover */
+}
+
+.refresh-button:active {
+    transform: scale(1); /* Resets scale when clicked */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Reduces shadow on click */
+}
