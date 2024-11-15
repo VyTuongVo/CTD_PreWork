@@ -70,3 +70,16 @@ body {
     transform: scale(1); /* Resets scale when clicked */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Reduces shadow on click */
 }
+
+.home-tab {
+    color: #D2B48C;
+    position: absolute; /* Assuming you want it positioned absolutely */
+    top: 60px;
+    left: 300px; /* Added 'px' unit */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold; /* Optional: makes the link bold */
+}
+
+.home-tab a:hover {
+    border-bottom: 2px solid #D2B48C;
+}
