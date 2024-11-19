@@ -1,3 +1,55 @@
-.hidden {
-    display: none;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FAF0E6; /* Adding background color */
+    margin: 0; /* Reset default margin */
+    padding: 20px; /* Add padding around the body content */
+    color: #E17B40;
+}
+
+
+h1 {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 3.3em;
+}
+
+.page-description {
+    font-size: 1.0em;
+    margin: 15px auto; /* Add margin above and below the description */
+    color:#E17B40 ; /* Slightly darker text for readability */
+    line-height: 1.6; /* Better line spacing */
+    max-width: 800px; /* Limit width for better readability */
+    text-align: left; /* Center-align the description */
+}
+
+.home-tab {
+    text-align: center;
+    margin: 20px 0; /* Add space above and below the home link */
+}
+
+.survey-container {
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    padding: 20px; /* Add padding inside the survey container */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    margin-bottom: 20px;
+    color: #8B4513; /* Set the question text to dark brown */
+    font-weight: bold;
+}
+
+label {
+    font-size: 1em;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
 }

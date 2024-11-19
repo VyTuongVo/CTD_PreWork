@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to get selected energy level range
     function getEnergyLevelRange() {
         const energyLevel = document.getElementById("energy-level").value;
-        if (energyLevel === "low") return { min: 1, max: 5 };
-        if (energyLevel === "middle") return { min: 6, max: 10 };
+        if (energyLevel === "low") return { min: 1, max: 4 };
+        if (energyLevel === "middle") return { min: 5, max: 10 };
         if (energyLevel === "high") return { min: 11, max: 20 };
         return null; // Return null if "Unknown" is selected
     }

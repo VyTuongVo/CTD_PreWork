@@ -1,8 +1,15 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    color: #F4A460; /* text color */
+    color: #E17B40; /* text color */
     background-color: #FAF0E6; /* background color */
+}
+
+h1{
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 3.3em;
 }
 
 .maincontent {
@@ -46,8 +53,8 @@ body {
 }
 
 .refresh-button {
-    position: absolute; /* Ensures the button is positioned relative to the container */
-    top: 60px;
+    position:fixed; /* Ensures the button is positioned relative to the container */
+    top: 90px;
     right: 200px;
     padding: 10px 20px;
     font-size: 1em;
@@ -72,12 +79,8 @@ body {
 }
 
 .home-tab {
-    color: #D2B48C;
-    position: absolute; /* Assuming you want it positioned absolutely */
-    top: 60px;
-    left: 300px; /* Added 'px' unit */
-    text-decoration: none; /* Removes underline */
-    font-weight: bold; /* Optional: makes the link bold */
+    text-align: center;
+    margin: 20px 0; /* Add space above and below the home link */
 }
 
 .home-tab a:hover {
