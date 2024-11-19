@@ -3,26 +3,25 @@ body {
     text-align: center;
     color: saddlebrown; /* text color*/
     background-color: #FAF0E6;  /*adding background color*/
-    font-size: 1.3em;
+    font-size: 1.3em; /* fnot size*/
 }
 
 header {
     background-color: saddlebrown;
-    padding: 10px 0; /* Reduced padding */
 }
 
 .tab-menu {
     display: flex;
-    justify-content: center;
+    justify-content: center;  /* word is centered and with margin, its 10 from the top*/
     margin-top: 10px;
 }
 
 .tab-menu a {
     margin: 0 15px;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
     color: #E17B40; /* Tab menu color */
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent;  /* this will make sure that the line at the bottom of header will not move */
     padding: 5px;
 }
 
@@ -33,19 +32,20 @@ header {
 
 /* This is for the cat featured thing */
 
-/* Title styling for "Today's Featured Cat" */
+/* Title styling for "ramdom Featured Cat" */
+
 .cat-title {
-    color: #E17B40; /* Brown color */
+    color: #E17B40; 
     font-size: 2em;
     font-weight: bold;
     margin-top: 50px;
     margin-bottom: 10px;
 }
-
+/* to make sure that a cat picture is not too large and making the page estetic weird, I need to created a max and min for image given */
 .cat-image {
-    max-width: 900px; /* Adjust as needed */
-    max-height: 600px ; /* Keeps aspect ratio */
-    border-radius: 8px;
+    max-width: 900px; 
+    max-height: 600px ;
+    border-radius: 8px; /* this just make sure that the border is round so it looks nice on the eyes*/
 }
 
 /* Style for the side SVG cat image */
@@ -53,8 +53,8 @@ header {
     position: absolute;
     top: 10px;
     right: 8px;
-    width: 180px; /* Adjust the size as needed */
-    color: #8B4513; /* Set to brown */
+    width: 180px; 
+    color: #8B4513; 
     transition: transform 0.3s, opacity 0.3s;
 }
 
@@ -62,8 +62,8 @@ header {
     position: absolute;
     top: 10px;
     left: 8px;
-    width: 180px; /* Adjust the size as needed */
-    color: #8B4513; /* Set to brown */
+    width: 180px; 
+    color: #8B4513; 
     transition: transform 0.3s, opacity 0.3s;
 }
 
@@ -72,8 +72,8 @@ header {
     position: absolute;
     bottom: 30px;
     right: 15px;
-    width: 400px; /* Adjust the size as needed */
-    color: #C45B1F; /* Brown color */
+    width: 400px; 
+    color: #C45B1F; 
     transition: transform 0.3s, opacity 0.3s;
 }
 
@@ -82,17 +82,19 @@ header {
     position: absolute;
     top: 150px;
     left: 60px;
-    width: 400px; /* Adjust the size as needed */
-    color: #C45B1F; /* Brown color */
+    width: 400px; 
+    color: #C45B1F; 
     transition: transform 0.3s, opacity 0.3s;
 }
+
+/* NowWW we are going on the refresh button */
 
 .refresh-button {
     margin-top: 15px;
     padding: 10px 20px;
     font-size: 1em;
     color: white;
-    background-color: #E17B40; /* Dark brown color */
+    background-color: #E17B40;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -100,5 +102,5 @@ header {
 }
 
 .refresh-button:hover {
-    background-color: #A0522D; /* Lighter brown on hover */
+    background-color: #A0522D; /* darker brown when on hover */
 }
