@@ -23,14 +23,14 @@ Table of Contents:
 
     **This method works best with macOS and Windows. The most effective web browsers are Google Chrome and Safari.
 
-    I. Access the website GitHub repository at https://github.com/VyTuongVo/CTD_PreWork.
-    II. Clone the repository using the bash command: git clone git@github.com:VyTuongVo/CTD_PreWork.git
+    - I. Access the website GitHub repository at https://github.com/VyTuongVo/CTD_PreWork.
+    - II. Clone the repository using the bash command: git clone git@github.com:VyTuongVo/CTD_PreWork.git
     ** The URL git@github.com:VyTuongVo/CTD_PreWork.git can be found on GitHub (website) by pressing the green "Code" button. Locate the SSH URL and copy it.
-    III. You now have a copy of the full website code. For more information on the code, see Section 2. The next step is to access the website via an HTTP URL.
-        1. Make sure your computer has "npm" (Node Package Manager) installed. If not, use "Homebrew" to download "npm"
+    - III. You now have a copy of the full website code. For more information on the code, see Section 2. The next step is to access the website via an HTTP URL.
+        - 1. Make sure your computer has "npm" (Node Package Manager) installed. If not, use "Homebrew" to download "npm"
         **To check if you have "Homebrew" and its version, enter "brew --version" in the terminal.
-        2. After getting :Homebrew", enter "brew install node" to download Node.js, which also includes npm. Enter the command "npm install -g http-server" to install http-server and access the HTTP URL.
-        3. Navigate to the CTD_PreWork folder using cd and enter "http-server -p 8000". The command will provide you with an HTTP URL such as http://127.0.0.1:8000 or http://11.25.67.251:8000. Copy and paste one the URL into your preferred web browser, and the website will appear.
+       - 2. After getting :Homebrew", enter "brew install node" to download Node.js, which also includes npm.  Enter the command "npm install -g http-server" to install http-server and access the HTTP URL.
+        - 3. Navigate to the CTD_PreWork folder using cd and enter "http-server -p 8000". The command will provide you with an HTTP URL such as http://127.0.0.1:8000 or http://11.25.67.251:8000. Copy and paste one the URL into your preferred web browser, and the website will appear.
 
 2. Description of Website Pages
 
