@@ -11,6 +11,8 @@ h1{   /* Heading setting */
     text-align: center;
     font-size: 3.3em;
 }
+
+
 .maincontent {
     padding-top: 2%; /* Used to make sure heading is in the same space as all pages */ 
 }

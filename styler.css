@@ -91,7 +91,7 @@ header {
 
 .refresh-button {
     margin-top: 15px;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Add spacing inside the button */
     font-size: 1em;
     color: white;
     background-color: #E17B40;

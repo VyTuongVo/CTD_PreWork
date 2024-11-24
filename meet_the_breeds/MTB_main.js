@@ -1,39 +1,40 @@
-// Ensure the script runs only after the DOM is fully loaded
+// Making sure that function only run when user have done selecting answer
 document.addEventListener("DOMContentLoaded", function() {
-    const apiKey = 'live_Dz8ZiOyF9uQH8YFNWjm7CWF4fKwlN3W4SKUrwJnKxNoR15wABaQIgPbpGavaJusB'; // Replace with your actual API key
-    const breedsApiUrl = 'https://api.thecatapi.com/v1/breeds';
+    const apiKey = 'live_Dz8ZiOyF9uQH8YFNWjm7CWF4fKwlN3W4SKUrwJnKxNoR15wABaQIgPbpGavaJusB';
+    const breedsApiUrl = 'https://api.thecatapi.com/v1/breeds'; // this is the breeds API
 
-    // Add event listener to each checkbox to enforce a 3-selection limit
+// QUESTION 1
+    // For the first questionsm user can only give 3 answer. If user select more than 3, they wull get error
     const checkboxes = document.querySelectorAll(".personality-checkbox");
 
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener("change", function() {
-            const checkedBoxes = document.querySelectorAll(".personality-checkbox:checked");
+            const checkedboxes = document.querySelectorAll(".personality-checkbox:checked");
             
-            if (checkedBoxes.length > 3) {
-                this.checked = false; // Deselect the current checkbox
-                alert("You can select up to 3 personality traits only.");
+            if (checkedboxes.length > 3) {
+                this.checked = false; // make sure to not count the check
+                alert("Sorry, you can only select up to 3 personality traits.");
             }
         });
     });
 
-    // Function to get selected personality traits
-    function getSelectedPersonalities() {
-        const selectedOptions = Array.from(document.querySelectorAll(".personality-checkbox:checked"));
-        return selectedOptions.map(option => option.value);
+    // it will then save for later to go to the best match which will give result
+    function GetSelectedPersonalities() {
+        const selectedoptions = Array.from(document.querySelectorAll(".personality-checkbox:checked"));
+        return selectedoptions.map(option => option.value);
     }
 
-    // Function to get selected energy level range
-    function getEnergyLevelRange() {
+// QUESTION 2
+    function GetEnergyLevelRange() {
         const energyLevel = document.getElementById("energy-level").value;
-        if (energyLevel === "low") return { min: 1, max: 4 };
-        if (energyLevel === "middle") return { min: 5, max: 10 };
-        if (energyLevel === "high") return { min: 11, max: 20 };
-        return null; // Return null if "Unknown" is selected
+        if (energyLevel === "low") return { min: 1, max: 2 };
+        if (energyLevel === "middle") return { min: 3, max: 4 };
+        if (energyLevel === "high") return { min: 5, max: 100 }; // there is no max so I just put 100 ( bc no energy level is greater than 100)
+        return null; // return null if "Unknown" is selected
     }
 
-    // Function to get selected life span range
-    function getLifeSpanRange() {
+    // QUESTION 3 to get selected life span range
+    function GetLifeSpanRange() {
         const lifeSpan = document.getElementById("life_span").value;
         if (lifeSpan === "short") return { min: 1, max: 7 };
         if (lifeSpan === "average") return { min: 8, max: 14 };
@@ -41,75 +42,81 @@ document.addEventListener("DOMContentLoaded", function() {
         return null;
     }
 
-    // Function to get selected affectionate level
-    function getAffectionateLevelRange() {
+    // QUESTION 4to get selected affectionate level
+    function GetAffectionateLevelRange() {
         const affectionateLevel = document.getElementById("Affectionate").value;
-        if (affectionateLevel === "low") return { min: 1, max: 3 };
-        if (affectionateLevel === "average") return { min: 4, max: 7 };
-        if (affectionateLevel === "high") return { min: 8, max: 10 };
+        if (affectionateLevel === "low") return { min: 1, max: 2 };
+        if (affectionateLevel === "average") return { min: 3, max: 4 };
+        if (affectionateLevel === "high") return { min: 5, max: 100 };
         return null;
     }
 
-    // Function to get selected vocalization level
-    function getVocalizationLevelRange() {
+    //QUESTION 5 Function to get selected vocalization level
+    function GetVocalLevelRange() {
         const vocalLevel = document.getElementById("Vocalisation").value;
-        if (vocalLevel === "low") return { min: 1, max: 3 };
-        if (vocalLevel === "average") return { min: 4, max: 7 };
-        if (vocalLevel === "high") return { min: 8, max: 10 };
+        if (vocalLevel === "low") return { min: 1, max: 2 };
+        if (vocalLevel === "average") return { min: 3, max: 4 };
+        if (vocalLevel === "high") return { min: 5, max: 100 };
         return null;
     }
 
-    // Function to find the best matching breeds
-    async function findBestMatch() {
-        const personalities = getSelectedPersonalities();
-        const energyLevelRange = getEnergyLevelRange();
-        const lifeSpanRange = getLifeSpanRange();
-        const affectionateLevelRange = getAffectionateLevelRange();
-        const vocalizationLevelRange = getVocalizationLevelRange();
+    // this will find the best matching breeds
+    async function FindBestMatch() {
+        const personalities = GetSelectedPersonalities();
+        const energyLevelRange = GetEnergyLevelRange();
+        const lifeSpanRange = GetLifeSpanRange();
+        const affectionateLevelRange = GetAffectionateLevelRange();
+        const vocalizationLevelRange = GetVocalLevelRange();
 
-        try {
-            const response = await fetch(breedsApiUrl, {
-                headers: {
-                    'x-api-key': apiKey
-                }
-            });
-            const breeds = await response.json();
+        //to do list
+        //get API
+        // filter down each of them based on breed
+        
+        const response = await fetch(breedsApiUrl, {  
+            headers: {
+                'x-api-key': apiKey
+            }
+        });
+        const breeds = await response.json();
 
-            // Filter breeds based on all selected criteria
-            const matchedBreeds = breeds.filter(breed => {
-                const matchesPersonality = !personalities.length || 
-                    personalities.some(personality => breed.temperament && breed.temperament.includes(personality));
-                
-                const matchesEnergyLevel = !energyLevelRange || 
-                    (breed.energy_level !== undefined &&
-                    breed.energy_level >= energyLevelRange.min &&
-                    breed.energy_level <= energyLevelRange.max);
+        // Filter breeds based on answer
+        const matchedBreeds = breeds.filter(breed => {
+            // make sure it is not empty, if it is null or then check if one of the breed varaible temperment have the personality selected
+            const MatchesPersonality = !personalities.length || 
+                personalities.some(personality => breed.temperament && breed.temperament.includes(personality));
+            
+            //look if range was slection, if not, look at min and look at max ( make sure reply is not over mean and not oever max)
+            const MatchesEnergyLevel = !energyLevelRange || 
+                (breed.energy_level !== undefined &&
+                breed.energy_level >= energyLevelRange.min &&
+                breed.energy_level <= energyLevelRange.max);
+            
+            // Check if any selection, then check the first number (bc life spams give two answer) use min as first number (min) and use 1 as max
+            const MatchesLifeSpan = !lifeSpanRange || 
+                (breed.life_span &&
+                parseInt(breed.life_span.split(" - ")[0]) >= lifeSpanRange.min &&
+                parseInt(breed.life_span.split(" - ")[1]) <= lifeSpanRange.max);
 
-                const matchesLifeSpan = !lifeSpanRange || 
-                    (breed.life_span &&
-                    parseInt(breed.life_span.split(" - ")[0]) >= lifeSpanRange.min &&
-                    parseInt(breed.life_span.split(" - ")[1]) <= lifeSpanRange.max);
+            // same concept as question 2 (enegery)    
+            const MatchesAffectionateLevel = !affectionateLevelRange || 
+                (breed.affection_level !== undefined &&
+                breed.affection_level >= affectionateLevelRange.min &&
+                breed.affection_level <= affectionateLevelRange.max);
 
-                const matchesAffectionateLevel = !affectionateLevelRange || 
-                    (breed.affection_level !== undefined &&
-                    breed.affection_level >= affectionateLevelRange.min &&
-                    breed.affection_level <= affectionateLevelRange.max);
+            // same concept as question 2 (enegery)    
+            const MatchesVocalizationLevel = !vocalizationLevelRange || 
+                (breed.vocalisation !== undefined &&
+                breed.vocalisation >= vocalizationLevelRange.min &&
+                breed.vocalisation <= vocalizationLevelRange.max);
 
-                const matchesVocalizationLevel = !vocalizationLevelRange || 
-                    (breed.vocalisation !== undefined &&
-                    breed.vocalisation >= vocalizationLevelRange.min &&
-                    breed.vocalisation <= vocalizationLevelRange.max);
+            return MatchesPersonality && MatchesEnergyLevel && MatchesLifeSpan && MatchesAffectionateLevel && MatchesVocalizationLevel;
+        });
 
-                return matchesPersonality && matchesEnergyLevel && matchesLifeSpan && matchesAffectionateLevel && matchesVocalizationLevel;
-            });
-
-            displayResults(matchedBreeds);
-        } catch (error) {
-            console.error("Error fetching breeds:", error);
-        }
+        displayResults(matchedBreeds);
+        
     }
 
-    // Function to display the matching results
+// how results is given
     function displayResults(matchedBreeds) {
         const resultsDiv = document.getElementById("results");
         resultsDiv.innerHTML = ""; // Clear previous results
@@ -118,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (matchedBreeds.length === 0) {
             resultsDiv.innerHTML = "<p>No matching breeds found. Try different preferences!</p>";
         } else {
+            resultsDiv.innerHTML = '<h2 style="text-decoration: underline;">Your Perfect Match Are:</h2>';
             matchedBreeds.forEach(breed => {
                 const breedInfo = `
                     <div class="breed-result">
@@ -135,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Event listener for the "Find My Cat Match" button
-    document.getElementById("submit-button").addEventListener("click", findBestMatch);
+    // whenever user press "Find My Cat Match" button, it will look through user selection, then it will look at best match for solution
+    document.getElementById("submit-button").addEventListener("click", FindBestMatch);
 });
 
