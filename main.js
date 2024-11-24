@@ -5,8 +5,6 @@ const apiKey = import.meta.env.VITE_PUBLIC_KEY?.trim(); // contecting to .env
 console.log('Resolved API Key:', apiKey);
 
 
-//const apiKey = 'live_Dz8ZiOyF9uQH8YFNWjm7CWF4fKwlN3W4SKUrwJnKxNoR15wABaQIgPbpGavaJusB';
-
 const imagesUrl = 'https://api.thecatapi.com/v1/images/search?limit=10&size=med'; // Ensures picture size is medium
 
 
