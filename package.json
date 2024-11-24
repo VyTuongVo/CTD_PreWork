@@ -1,0 +1,21 @@
+{
+  "name": "ctd_prework",
+  "version": "1.0.0",
+  "description": "Welcome to my README.md file! Here, I will explain everything you need to know about my website, \"Cat World.\" This website was created using the Cat API, available at https://thecatapi.com. It showcases a variety of cat pictures and explores different cat breeds along with their characteristics. I hope this website brings a smile to your face and brightens your day with the joy of cats!",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.11"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
+

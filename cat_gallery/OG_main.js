@@ -1,5 +1,6 @@
 const limit = 15; // Since I keep changing limit, this is for easier change. and it looks cool!
-const api_key = 'live_Dz8ZiOyF9uQH8YFNWjm7CWF4fKwlN3W4SKUrwJnKxNoR15wABaQIgPbpGavaJusB';
+const apiKey = import.meta.env.VITE_PUBLIC_KEY?.trim(); // contecting to .env
+console.log('Resolved API Key:', apiKey);
 const url = `https://api.thecatapi.com/v1/images/search?limit=${limit}&size=med`; // for this one I want to have pictrue size medium so it can kinda into boxes
 
 // To do: 
@@ -14,7 +15,7 @@ function fetchimages() {
 
     fetch(url, { // this will get API keys
         headers: {
-            'x-api-key': api_key 
+            'x-api-key': apiKey 
         }
     })
     .then((response) => response.json())  // this will take the reponse from the API called

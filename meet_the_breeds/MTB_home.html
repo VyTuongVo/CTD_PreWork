@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Purrfect Match</title>
     <link href="MTB_style.css" rel="stylesheet" type="text/css">
-    <script src="MTB_main.js" defer></script>
+    <script type="module" src="MTB_main.js"></script>
 </head>
 <body>
     <h1>The Purrfect Match</h1>
@@ -33,6 +33,9 @@
     <!-- Description of the page. Since this need interaction, it is necessery to have instruction -->
     <p class="page-description">
         Welcome to The Purrfect Match page! Answer the following questions to discover the breed of your ideal feline friend. Provide answers to the best of your ability. If you don't have a response to a question, feel free to leave the selection as "Unknown." Once you receive your match, it is highly recommend reading more about your purrfect breed on the attached Wikipedia page. Have fun and enjoy finding your purrfect pal!
+    </p>
+    <p class="page-description">
+        ***IMPORTANT: Please note that there are fewer than 100 cat breeds, so it is possible that you may not find a match even after answering all the questions. If this happens, focus on answering the questions that are MOST significant to you and mark the others as "Unknown." This approach will increase your chances of finding an ideal breed. I apologize for any inconvenience.
     </p>
 
     <!-- Q1: It should have questions and aviable selection. The selection came from all the treats in breed description-->
@@ -84,12 +87,11 @@
     <!-- q3) Life Span -->
     <div class="survey-container">
         <div class="question">
-            <label for="life_span">3. How long of a life span are you looking for? (1-7 = Short, 8-14 = Average, 15+ = Long)</label>
+            <label for="life_span">3. How long of a life span are you looking for? (1 - 10 = Short, 11+ = Average/Long)</label>
             <select id="life_span">
                 <option value="">Unknown</option>
-                <option value="short">Short (1-7)</option>
-                <option value="average">Average (8-14)</option>
-                <option value="long">Long (15+)</option>
+                <option value="short">Short (1-10)</option>
+                <option value="average">Average/Long (11+)</option>
             </select>
         </div>
     </div>

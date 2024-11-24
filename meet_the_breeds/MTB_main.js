@@ -1,6 +1,7 @@
 // Making sure that function only run when user have done selecting answer
 document.addEventListener("DOMContentLoaded", function() {
-    const apiKey = 'live_Dz8ZiOyF9uQH8YFNWjm7CWF4fKwlN3W4SKUrwJnKxNoR15wABaQIgPbpGavaJusB';
+    const apiKey = import.meta.env.VITE_PUBLIC_KEY?.trim(); // contecting to .env
+    console.log('Resolved API Key:', apiKey);
     const breedsApiUrl = 'https://api.thecatapi.com/v1/breeds'; // this is the breeds API
 
 // QUESTION 1
@@ -36,9 +37,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // QUESTION 3 to get selected life span range
     function GetLifeSpanRange() {
         const lifeSpan = document.getElementById("life_span").value;
-        if (lifeSpan === "short") return { min: 1, max: 7 };
-        if (lifeSpan === "average") return { min: 8, max: 14 };
-        if (lifeSpan === "long") return { min: 15, max: 100 };
+        if (lifeSpan === "short") return { min: 1, max: 10 };
+        if (lifeSpan === "average/long") return { min: 11, max: 100 };
         return null;
     }
 
@@ -95,7 +95,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const MatchesLifeSpan = !lifeSpanRange || 
                 (breed.life_span &&
                 parseInt(breed.life_span.split(" - ")[0]) >= lifeSpanRange.min &&
-                parseInt(breed.life_span.split(" - ")[1]) <= lifeSpanRange.max);
+                parseInt(breed.life_span.split(" - ")[0]) <= lifeSpanRange.max);
+                    // I jusy want to look at the first number. if it is smaller than 10, It would be sport, bigger would be long
 
             // same concept as question 2 (enegery)    
             const MatchesAffectionateLevel = !affectionateLevelRange || 

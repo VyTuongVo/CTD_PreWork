@@ -1,10 +1,6 @@
 # CTD_PreWork
-***
-Important: If there is anything wrong with the website, please feel free to contact me through email, vtvo@ucdavis.edu or phone number 6692966875. Thank you
-***
 
-
-Welcome to my README.md file where I will explain all you need to know about my website "Cat World."
+Welcome to my README.md file! Here, I will explain everything you need to know about my website, "Cat World." This website was created using the Cat API, available at https://thecatapi.com. It showcases a variety of cat pictures and explores different cat breeds along with their characteristics. I hope this website brings a smile to your face and brightens your day with the joy of cats!
 
 Table of Contents:
 
@@ -26,11 +22,14 @@ Table of Contents:
     - I. Access the website GitHub repository at https://github.com/VyTuongVo/CTD_PreWork.
     - II. Clone the repository using the bash command: git clone git@github.com:VyTuongVo/CTD_PreWork.git
     ** The URL git@github.com:VyTuongVo/CTD_PreWork.git can be found on GitHub (website) by pressing the green "Code" button. Locate the SSH URL and copy it.
-    - III. You now have a copy of the full website code. For more information on the code, see Section 2. The next step is to access the website via an HTTP URL.
+    - III. You now have a copy of the full website code. First thing you must do is request your API by following instruction from https://thecatapi.com. 
+    - IV. Locate .env and enter file. Then enter your API code into the empty VITE_PUBLIC_KEY=
+    - V. For more information on the code, see Section 2. IV. The next step is to access the website via an HTTP URL.
         - 1. Make sure your computer has "npm" (Node Package Manager) installed. If not, use "Homebrew" to download "npm"
         **To check if you have "Homebrew" and its version, enter "brew --version" in the terminal.
-       - 2. After getting :Homebrew", enter "brew install node" to download Node.js, which also includes npm.  Enter the command "npm install -g http-server" to install http-server and access the HTTP URL.
-        - 3. Navigate to the CTD_PreWork folder using cd and enter "http-server -p 8000". The command will provide you with an HTTP URL such as http://127.0.0.1:8000 or http://11.25.67.251:8000. Copy and paste one the URL into your preferred web browser, and the website will appear.
+       - 2. After getting "Homebrew", enter "brew install node" to download Node.js, which also includes npm.  Enter the command "npm install" to npm in case it is not install.
+       - 3. Navigate to the CTD_PreWork folder using cd and run "npm run dev" (start a Vite development server) in terminal which will give you a url "Local:   http://localhost:5173/". Copy and paste it to selected web brower and the website will appear.
+       - 4. In the case that an error appear when you run "npm run dev", run "npm install vite --save-dev" (will install development as dependency), then run "npm run dev".
 
 2. Description of Website Pages
 
